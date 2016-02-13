@@ -1,0 +1,8 @@
+<div class="page {{ (loggedIn) ? 'scroll-page' : ''}}">
+  <div class="login-page" layout="column" layout-align="center center">
+    <login class="salesforce-login" [loginService]="_salesforceService">
+      <md-progress-circular [style.display]="(loggingIn) ? 'block' : 'none'" mode="indeterminate"></md-progress-circular>
+    </login>
+  </div>
+  <main-app class="main-app"></main-app>
+</div>

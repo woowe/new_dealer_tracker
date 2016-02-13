@@ -1,0 +1,31 @@
+<md-content class="login-card" layout-align="center center">
+  <div [style.display]="(!hasCredentials) ? 'flex' : 'none'" layout="column">
+    <md-input-container class="md-block">
+      <label>Username</label>
+      <input type="text" md-input #username>
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label>Password</label>
+      <input type="password" md-input #password>
+    </md-input-container>
+    <md-input-container class="md-block">
+      <label>Security Key</label>
+      <input type="password" md-input #security_key>
+    </md-input-container>
+  </div>
+  <div style="height: 100px;" layout="column" layout-align="center center">
+    <md-checkbox #remember [checked]="remembered" (click)="onRememberedClick()">
+      Remember Me!
+    </md-checkbox>
+    <button md-raised-button [style.display]="(!loggingIn && !loggedIn) ? 'inline-block' : 'none'"
+            class="md-raised md-primary"
+            (click) = "onLoginClick(username.value, password.value, security_key.value)"
+            >
+      Login</button>
+    <md-progress-circular [style.display]="(loggingIn) ? 'block' : 'none'" mode="indeterminate"></md-progress-circular>
+    <i style="color: green" [style.display]="(loggedIn) ? 'inline-block' : 'none'" md-icon >done</i>
+  </div>
+</md-content>
+
+
+<!-- JoWTE1qRQnh3cu9nQdfP8edGh -->
