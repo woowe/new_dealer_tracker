@@ -1,4 +1,4 @@
-System.register(['angular2/core', '../SideBar/sidebar.component'], function(exports_1) {
+System.register(['angular2/core', '../SideBar/sidebar.component', 'angular2/router'], function(exports_1) {
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
         var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
         if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -8,7 +8,7 @@ System.register(['angular2/core', '../SideBar/sidebar.component'], function(expo
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, sidebar_component_1;
+    var core_1, sidebar_component_1, router_1;
     var MainComponent;
     return {
         setters:[
@@ -17,6 +17,9 @@ System.register(['angular2/core', '../SideBar/sidebar.component'], function(expo
             },
             function (sidebar_component_1_1) {
                 sidebar_component_1 = sidebar_component_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             MainComponent = (function () {
@@ -26,7 +29,8 @@ System.register(['angular2/core', '../SideBar/sidebar.component'], function(expo
                     core_1.Component({
                         selector: 'main-app',
                         templateUrl: '/home/jason/Documents/new_dealer_tracker/dev/components/MainApp/main.html',
-                        directives: [sidebar_component_1.SideBarComponent]
+                        directives: [sidebar_component_1.SideBarComponent, router_1.ROUTER_DIRECTIVES],
+                        providers: []
                     }), 
                     __metadata('design:paramtypes', [])
                 ], MainComponent);
@@ -37,4 +41,4 @@ System.register(['angular2/core', '../SideBar/sidebar.component'], function(expo
     }
 });
 
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvTWFpbkFwcC9tYWluLmNvbXBvbmVudC50cyJdLCJuYW1lcyI6WyJNYWluQ29tcG9uZW50IiwiTWFpbkNvbXBvbmVudC5jb25zdHJ1Y3RvciJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O1lBR0E7Z0JBT0lBO2dCQUVBQyxDQUFDQTtnQkFUTEQ7b0JBQUNBLGdCQUFTQSxDQUFDQTt3QkFDUEEsUUFBUUEsRUFBRUEsVUFBVUE7d0JBQ3BCQSxXQUFXQSxFQUFFQSwyRUFBMkVBO3dCQUN4RkEsVUFBVUEsRUFBRUEsQ0FBQ0Esb0NBQWdCQSxDQUFDQTtxQkFDakNBLENBQUNBOztrQ0FNREE7Z0JBQURBLG9CQUFDQTtZQUFEQSxDQVZBLEFBVUNBLElBQUE7WUFWRCx5Q0FVQyxDQUFBIiwiZmlsZSI6ImNvbXBvbmVudHMvTWFpbkFwcC9tYWluLmNvbXBvbmVudC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7Q29tcG9uZW50fSBmcm9tICdhbmd1bGFyMi9jb3JlJztcbmltcG9ydCB7U2lkZUJhckNvbXBvbmVudH0gZnJvbSAnLi4vU2lkZUJhci9zaWRlYmFyLmNvbXBvbmVudCc7XG5cbkBDb21wb25lbnQoe1xuICAgIHNlbGVjdG9yOiAnbWFpbi1hcHAnLFxuICAgIHRlbXBsYXRlVXJsOiAnL2hvbWUvamFzb24vRG9jdW1lbnRzL25ld19kZWFsZXJfdHJhY2tlci9kZXYvY29tcG9uZW50cy9NYWluQXBwL21haW4uaHRtbCcsXG4gICAgZGlyZWN0aXZlczogW1NpZGVCYXJDb21wb25lbnRdXG59KVxuXG5leHBvcnQgY2xhc3MgTWFpbkNvbXBvbmVudCB7XG4gICAgY29uc3RydWN0b3IoKSB7XG5cbiAgICB9XG59XG4iXSwic291cmNlUm9vdCI6Ii9zb3VyY2UvIn0=
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvTWFpbkFwcC9tYWluLmNvbXBvbmVudC50cyJdLCJuYW1lcyI6WyJNYWluQ29tcG9uZW50IiwiTWFpbkNvbXBvbmVudC5jb25zdHJ1Y3RvciJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O1lBSUE7Z0JBUUlBO2dCQUVBQyxDQUFDQTtnQkFWTEQ7b0JBQUNBLGdCQUFTQSxDQUFDQTt3QkFDUEEsUUFBUUEsRUFBRUEsVUFBVUE7d0JBQ3BCQSxXQUFXQSxFQUFFQSwyRUFBMkVBO3dCQUN4RkEsVUFBVUEsRUFBRUEsQ0FBQ0Esb0NBQWdCQSxFQUFFQSwwQkFBaUJBLENBQUNBO3dCQUNqREEsU0FBU0EsRUFBRUEsRUFBRUE7cUJBQ2hCQSxDQUFDQTs7a0NBTURBO2dCQUFEQSxvQkFBQ0E7WUFBREEsQ0FYQSxBQVdDQSxJQUFBO1lBWEQseUNBV0MsQ0FBQSIsImZpbGUiOiJjb21wb25lbnRzL01haW5BcHAvbWFpbi5jb21wb25lbnQuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQge0NvbXBvbmVudH0gZnJvbSAnYW5ndWxhcjIvY29yZSc7XG5pbXBvcnQge1NpZGVCYXJDb21wb25lbnR9IGZyb20gJy4uL1NpZGVCYXIvc2lkZWJhci5jb21wb25lbnQnO1xuaW1wb3J0IHsgUk9VVEVSX0RJUkVDVElWRVMsIFJPVVRFUl9QUk9WSURFUlMgfSBmcm9tICdhbmd1bGFyMi9yb3V0ZXInO1xuXG5AQ29tcG9uZW50KHtcbiAgICBzZWxlY3RvcjogJ21haW4tYXBwJyxcbiAgICB0ZW1wbGF0ZVVybDogJy9ob21lL2phc29uL0RvY3VtZW50cy9uZXdfZGVhbGVyX3RyYWNrZXIvZGV2L2NvbXBvbmVudHMvTWFpbkFwcC9tYWluLmh0bWwnLFxuICAgIGRpcmVjdGl2ZXM6IFtTaWRlQmFyQ29tcG9uZW50LCBST1VURVJfRElSRUNUSVZFU10sXG4gICAgcHJvdmlkZXJzOiBbXVxufSlcblxuZXhwb3J0IGNsYXNzIE1haW5Db21wb25lbnQge1xuICAgIGNvbnN0cnVjdG9yKCkge1xuXG4gICAgfVxufVxuIl0sInNvdXJjZVJvb3QiOiIvc291cmNlLyJ9

@@ -1,0 +1,225 @@
+<div class="projects-container" layout="row">
+  <md-content layout-padding class="projects-content" flex="30">
+    <md-list class="projects-list" *ngIf="_projectService.projects">
+      <md-subheader class="md-no-sticky" flex layout="row">
+        <div flex>Projects</div>
+        <div flex>
+          <select #stageFilter (change)="selectedValue(stageFilter.value)">
+            <option value="ACTIVE">ACTIVE</option>
+            <option value="PENDING">PENDING</option>
+            <option value="HOLD">HOLD</option>
+            <option value="FINISHED">FINISHED</option>
+            <option value="ALL">ALL</option>
+          </select>
+        </div>
+      </md-subheader>
+      <md-progress-circular [style.display]="(_projectService.projects.length == 0) ? 'flex' : 'none'" md-mode="indeterminate"></md-progress-circular>
+      <md-list-item [style.display]="(_projectService.projects.length > 0) ? 'flex' : 'none'"
+         *ngFor="#project_item of displayProjects()">
+        <button md-raised-button class="project-item-button (selected.name == project_item.name) ? 'selected' : ''" flex="100" layout="column" layout-align="center center"
+          (click)="onListItemClick(project_item)"
+          >
+          <div *ngIf="project_item.days_left" class="project-item-days-left">{{project_item.days_left}} <small>days</small></div>
+          <div *ngIf="!project_item.days_left" class="project-item-days-left"><small>Not started</small></div>
+          <div class="project-item-name">{{project_item.name}}</div>
+        </button>
+      </md-list-item>
+    </md-list>
+  </md-content>
+  <md-progress-circular *ngIf="!selected" md-mode="indeterminate"></md-progress-circular>
+  <div *ngIf="selected" class="selected-project-view" flex="70" style="overflow-y: auto;">
+    <md-toolbar class="md-hero" layout="row" layout-align="center center">
+      <i class="secret-project" md-icon>person</i>
+      <div> {{selected.name}} </div>
+    </md-toolbar>
+
+    <div class="selected-project-info">
+      <md-card>
+        <md-card-title>
+          <md-card-title-text layout="row">
+            <span class="md-headline">Tasks</span>
+            <md-divider inset></md-divider>
+          </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+          <md-progress-circular *ngIf="!selected.tasks" md-mode="indeterminate"></md-progress-circular>
+
+          <md-list *ngIf="selected.tasks">
+            <md-list-item *ngFor="#item of selected.tasks">
+              <md-divider inset></md-divider>
+              <div flex="70" layout="row" layout-align="start center">
+                <md-checkbox [checked]="item.status == 'Complete'"></md-checkbox>
+                <div class="md-list-item-text">
+                  <span class="task-name">{{item.name}}</span>
+                </div>
+              </div>
+              <div class="md-list-item-text" flex="30" style="text-align: right;">
+                <span class="task-due-date">{{item.due_date}}</span>
+              </div>
+
+            </md-list-item>
+          </md-list>
+
+        </md-card-content>
+      </md-card>
+
+      <md-card>
+        <md-card-title>
+          <md-card-title-text layout="row">
+            <span class="md-headline">Dates</span>
+          </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+          <md-progress-circular *ngIf="!selected.dates" md-mode="indeterminate"></md-progress-circular>
+
+        </md-card-content>
+      </md-card>
+
+      <md-card layout="column">
+        <md-card-title>
+          <md-card-title-text layout="row">
+            <span class="md-headline">Info</span>
+          </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content style="margin-top: 15px;">
+          <md-progress-circular *ngIf="!selected.info" md-mode="indeterminate"></md-progress-circular>
+          <form *ngIf="selected.info" name="infoForm">
+            <div layout="row">
+              <md-input-container class="md-block" flex>
+                <label>City</label>
+                <input md-input [(value)]="selected.info.city">
+              </md-input-container>
+
+              <md-input-container class="md-block" flex>
+                <label>State</label>
+                <input md-input [(value)]="selected.info.state">
+              </md-input-container>
+
+              <md-input-container class="md-block" flex>
+                <label>Zip</label>
+                <input md-input [(value)]="selected.info.zip">
+              </md-input-container>
+            </div>
+          </form>
+        </md-card-content>
+      </md-card>
+
+      <md-card>
+        <md-card-title>
+          <md-card-title-text layout="row">
+            <span class="md-headline">Milestones</span>
+          </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+          <md-progress-circular *ngIf="!selected.milestones" md-mode="indeterminate"></md-progress-circular>
+
+          <md-list *ngIf="selected.milestones">
+            <md-list-item *ngFor="#item of selected.milestones">
+              <md-divider inset></md-divider>
+              <div flex="20" class="md-list-item-text" style="color: green;">
+                ${{item.price}}
+              </div>
+              <div flex class="md-list-item-text">
+                {{item.name}}
+              </div>
+              <div flex class="md-list-item-text">
+                {{item.status}}
+              </div>
+            </md-list-item>
+          </md-list>
+
+        </md-card-content>
+      </md-card>
+
+      <md-card>
+        <md-card-title>
+          <md-card-title-text layout="row">
+            <span class="md-headline">Contacts</span>
+          </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+          <md-progress-circular *ngIf="!selected.contacts" md-mode="indeterminate"></md-progress-circular>
+          <md-list *ngIf="selected.contacts">
+            <md-list-item *ngFor="#item of selected.contacts">
+              <div class="md-list-item-text" flex>
+                {{item.name}}
+              </div>
+              <div class="md-list-item-text" flex>
+                <a href="mailto:{{item.email}}">{{item.email}}</a>
+              </div>
+              <div class="md-list-item-text" flex>
+                <a href="tel:{{item.phone}}"> {{item.phone}} </a>
+              </div>
+            </md-list-item>
+          </md-list>
+        </md-card-content>
+      </md-card>
+
+      <md-card>
+        <md-card-title>
+          <md-card-title-text layout="row">
+            <span class="md-headline">Team</span>
+          </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+          <md-progress-circular *ngIf="!selected.team" md-mode="indeterminate"></md-progress-circular>
+
+          <md-list *ngIf="selected.team">
+            <md-list-item *ngIf="selected.team.builder">
+              <div flex class="md-list-item-text">Builder</div>
+              <div flex class="md-list-item-text">{{selected.team.builder.name}}</div>
+              <div flex class="md-list-item-text">
+                <a href="mailto:{{selected.team.builder.email}}">{{selected.team.builder.email}}</a>
+              </div>
+              <md-divider inset></md-divider>
+            </md-list-item>
+            <md-list-item *ngIf="selected.team.data">
+              <div flex class="md-list-item-text">Data</div>
+              <div flex class="md-list-item-text">{{selected.team.data.name}}</div>
+              <div flex class="md-list-item-text">
+                <a href="mailto:{{selected.team.data.email}}">{{selected.team.data.email}}</a>
+              </div>
+              <md-divider inset></md-divider>
+            </md-list-item>
+            <md-list-item *ngIf="selected.team.content">
+              <div flex class="md-list-item-text">Content</div>
+              <div flex class="md-list-item-text">{{selected.team.content.name}}</div>
+              <div flex class="md-list-item-text">
+                <a href="mailto:{{selected.team.content.email}}">{{selected.team.content.email}}</a>
+              </div>
+              <md-divider inset></md-divider>
+            </md-list-item>
+            <md-list-item *ngIf="selected.team.design">
+              <div flex class="md-list-item-text">Design</div>
+              <div flex class="md-list-item-text">{{selected.team.design.name}}</div>
+              <div flex class="md-list-item-text">
+                <a href="mailto:{{selected.team.design.email}}">{{selected.team.design.email}}</a>
+              </div>
+              <md-divider inset></md-divider>
+            </md-list-item>
+          </md-list>
+
+        </md-card-content>
+      </md-card>
+
+      <md-card>
+        <md-card-title>
+          <md-card-title-text layout="row">
+            <span class="md-headline">Project Cases</span>
+          </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+          <md-progress-circular *ngIf="!selected.cases" md-mode="indeterminate"></md-progress-circular>
+
+        </md-card-content>
+      </md-card>
+    </div>
+  </div>
+</div>

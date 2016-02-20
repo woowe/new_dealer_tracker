@@ -1,19 +1,20 @@
-<div class="side-bar-container" layout-align="center center">
+<div class="sidebar-container" layout-align="center center">
   <div class="profile-pic" layout="column" layout-align="center center">
     <i md-icon >account_circle</i>
     <p> {{_salesforceService.user.name}} </p>
   </div>
   <div class="items" layout="column" layout-align="center center">
-    <button md-raised-button class="button-item">
-      <div  layout="row" layout-align="center center">
-        <i md-icon >data_usage</i> <span class="button-text">Dashboard</span>
-      </div>
-    </button>
-    <button md-raised-button class="button-item">
-      <div  layout="row" layout-align="center center">
-        <i md-icon >queue</i> <span class="button-text">Projects</span>
-      </div>
-    </button>
+    <ul class="sidebar-list">
+      <li class="sidebar-item" *ngFor="#item of _sidebarService.__SIDEBAR_BUTTONS">
+        <a class="sidebar-link" [routerLink]="[item.link]">
+          <button md-raised-button class="sidebar-button">
+            <div class="sidebar-content-conatiner" layout="row" layout-align="center center">
+              <i class="sidebar-item-icon" md-icon >{{item.icon}}</i> <span class="sidebar-item-name">{{item.name}}</span>
+            </div>
+          </button>
+        </a>
+      </li>
+    </ul>
   </div>
 </div>
 
