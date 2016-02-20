@@ -18,7 +18,7 @@ export class ProjectsComponent {
         var self = this;
         this._projectService.projectListLoaded.subscribe((listLoaded) => {
             if (listLoaded) {
-                self.selected = self._projectService.projects[0];
+                self.selected = self.displayProjects()[0];
 
                 self._projectService.selectProject(self.selected);
                 self._projectService.loadProject();
@@ -72,7 +72,10 @@ export class ProjectsComponent {
 
     selectedValue(selectedValue: string) {
         this.stageFilter = selectedValue;
-        console.log(this.compareStage('In Transition'));
 
+        this.selected = this.displayProjects()[0];
+
+        this._projectService.selectProject(this.selected);
+        this._projectService.loadProject();
     }
 }
