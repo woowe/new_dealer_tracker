@@ -4,7 +4,7 @@ import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from "ng2-material/all";
 
 @Component({
     selector: "projects-view",
-    templateUrl: '/home/jason/Documents/new_dealer_tracker/dev/components/Projects/Projects.html',
+    templateUrl: 'dev/components/Projects/Projects.html',
     directives: [MATERIAL_DIRECTIVES],
     providers: [MATERIAL_PROVIDERS]
 })

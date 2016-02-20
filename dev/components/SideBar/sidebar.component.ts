@@ -6,7 +6,7 @@ import { ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 
 @Component({
     selector: 'side-bar',
-    templateUrl: '/home/jason/Documents/new_dealer_tracker/dev/components/SideBar/sidebar.html',
+    templateUrl: 'dev/components/SideBar/sidebar.html',
     directives: [MATERIAL_DIRECTIVES, ROUTER_DIRECTIVES],
     providers: [SideBarService]
 })

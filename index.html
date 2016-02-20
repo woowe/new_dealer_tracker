@@ -1,27 +1,30 @@
 <html>
 <head>
-    <base href="/">
     <title>Angular 2 Boilerplate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" href="/home/jason/Documents/new_dealer_tracker/node_modules/ng2-material/dist/ng2-material.css">
-    <link rel="stylesheet" href="/home/jason/Documents/new_dealer_tracker/node_modules/ng2-material/dist/font.css">
+    <script type="text/javascript">
+      document.write("<base href='file://" + __dirname + "/'/>");
+    </script>
+
+    <link rel="stylesheet" href="node_modules/ng2-material/dist/ng2-material.css">
+    <link rel="stylesheet" href="node_modules/ng2-material/dist/font.css">
     <!-- 1. Load libraries -->
     <!-- IE required polyfills, in this exact order -->
     <!-- <script src="/home/jason/Documents/new_dealer_tracker/node_modules/es6-shim/es6-shim.min.js"></script> -->
-    <script src="/home/jason/Documents/new_dealer_tracker/node_modules/systemjs/dist/system-polyfills.js"></script>
-    <script src="/home/jason/Documents/new_dealer_tracker/node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="/home/jason/Documents/new_dealer_tracker/node_modules/systemjs/dist/system.src.js"></script>
+    <script src="node_modules/systemjs/dist/system-polyfills.js"></script>
+    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
     <script>
       System.config({
         defaultJSExtensions: true,
-        baseURL: '/home/jason/Documents/new_dealer_tracker/'
+        baseURL: __dirname + '/'
       });
     </script>
-    <script src="/home/jason/Documents/new_dealer_tracker/node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="/home/jason/Documents/new_dealer_tracker/node_modules/angular2/bundles/angular2.dev.js"></script>
-    <script src="/home/jason/Documents/new_dealer_tracker/node_modules/angular2/bundles/router.dev.js"></script>
-    <script src="/home/jason/Documents/new_dealer_tracker/node_modules/angular2/bundles/http.js"></script>
+    <script src="node_modules/rxjs/bundles/Rx.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="node_modules/angular2/bundles/router.dev.js"></script>
+    <script src="node_modules/angular2/bundles/http.js"></script>
     <!-- 2. Configure SystemJS -->
     <script>
         System.config({
@@ -39,16 +42,16 @@
                 'ng2-material': 'node_modules/ng2-material'
               }
         });
-        System.import('/home/jason/Documents/new_dealer_tracker/app/boot')
+        System.import('app/boot')
                 .then(null, console.error.bind(console));
     </script>
 
-    <link rel="stylesheet" href="/home/jason/Documents/new_dealer_tracker/src/css/app.css">
+    <link rel="stylesheet" href="src/css/app.css">
 
 </head>
 <!-- 3. Display the application -->
 <body>
-  <base href="/">
+  <!-- <base href="/"> -->
   <my-app class="application"></my-app>
 </body>
 </html>

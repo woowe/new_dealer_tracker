@@ -6,7 +6,7 @@ let fs = require('fs');
 
 @Component({
     selector: 'login',
-    templateUrl: "/home/jason/Documents/new_dealer_tracker/dev/components/Login/Login.html",
+    templateUrl: "dev/components/Login/Login.html",
     inputs: ['loginService'],
     directives: [MATERIAL_DIRECTIVES]
 })

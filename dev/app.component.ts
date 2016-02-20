@@ -9,7 +9,7 @@ import {MainComponent} from './components/MainApp/main.component';
 
 @Component({
     selector: 'my-app',
-    templateUrl: '/home/jason/Documents/new_dealer_tracker/dev/app.html',
+    templateUrl: 'dev/app.html',
     directives: [LoginComponent, MainComponent]
 })
 
