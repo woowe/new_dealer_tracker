@@ -1,8 +1,5 @@
 import {Injectable} from 'angular2/core';
 import {implementsInterface} from "../utils/utils";
-import {ProjectsComponent} from "../components/Projects/Projects.components";
-import {DashboardComponent} from "../components/Dashboard/Dashboard.component";
-import {RouteConfig} from "angular2/router";
 
 interface SidebarItem {
     name: string,

@@ -1,12 +1,12 @@
 import {Component, OnInit, NgZone} from 'angular2/core';
 import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from "ng2-material/all";
-import {ILogin} from '../../interfaces/ILogin.interface';
+import {ILogin} from '../interfaces/ILogin.interface';
 
 let fs = require('fs');
 
 @Component({
     selector: 'login',
-    templateUrl: "dev/components/Login/Login.html",
+    templateUrl: "views/Login.html",
     inputs: ['loginService'],
     directives: [MATERIAL_DIRECTIVES]
 })

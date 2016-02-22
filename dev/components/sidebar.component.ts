@@ -1,12 +1,12 @@
 import {Component, Inject} from 'angular2/core';
-import {SalesforceService} from '../../services/Salesforce.service';
+import {SalesforceService} from '../services/Salesforce.service';
 import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from "ng2-material/all";
-import {SideBarService} from "../../services/SideBar.service";
+import {SideBarService} from "../services/SideBar.service";
 import { ROUTER_DIRECTIVES, ROUTER_PROVIDERS } from 'angular2/router';
 
 @Component({
     selector: 'side-bar',
-    templateUrl: 'dev/components/SideBar/sidebar.html',
+    templateUrl: 'views/sidebar.html',
     directives: [MATERIAL_DIRECTIVES, ROUTER_DIRECTIVES],
     providers: [SideBarService]
 })

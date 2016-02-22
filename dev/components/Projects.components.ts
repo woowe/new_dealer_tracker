@@ -1,10 +1,10 @@
 import {Component, Inject, NgZone} from "angular2/core";
-import {ProjectService} from "../../services/Project.service";
+import {ProjectService} from "../services/Project.service";
 import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from "ng2-material/all";
 
 @Component({
     selector: "projects-view",
-    templateUrl: 'dev/components/Projects/Projects.html',
+    templateUrl: 'views/Projects.html',
     directives: [MATERIAL_DIRECTIVES],
     providers: [MATERIAL_PROVIDERS]
 })
@@ -13,6 +13,7 @@ export class ProjectsComponent {
     selected: any;
     stageFilter: string;
     constructor(public _projectService: ProjectService, public _ngZone: NgZone) {
+        console.log("asdfasdfasdfasdfasadf");
         this.stageFilter = 'ACTIVE';
         this.selected = null;
         var self = this;
@@ -71,11 +72,7 @@ export class ProjectsComponent {
     }
 
     selectedValue(selectedValue: string) {
+        console.log(selectedValue);
         this.stageFilter = selectedValue;
-
-        this.selected = this.displayProjects()[0];
-
-        this._projectService.selectProject(this.selected);
-        this._projectService.loadProject();
     }
 }

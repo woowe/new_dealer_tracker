@@ -1,5 +1,5 @@
 import {Component, Inject} from "angular2/core";
-import {SalesforceService} from "../../services/Salesforce.service";
+import {SalesforceService} from "../services/Salesforce.service";
 
 @Component({
     selector: "dashboard-view",

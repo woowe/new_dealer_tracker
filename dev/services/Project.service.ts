@@ -79,7 +79,7 @@ export class ProjectService {
         if (!this.projects[this.selected_project].team)
             this.loadProjectTeam();
         if (!this.projects[this.selected_project].cases)
-            this.loadProjectParentCases();
+            this.loadProjectCases();
     }
 
     loadProjectTasks() {
@@ -180,9 +180,6 @@ export class ProjectService {
     }
 
     loadProjectContacts() {
-
-
-
         var self = this;
         //console.log(this.projects[this.selected_project]);
         this._salesforceService.conn.query(
@@ -262,7 +259,30 @@ export class ProjectService {
         );
     }
 
-    loadProjectParentCases() {
+    loadProjectCases() {
 
+        var self = this;
+        //console.log(this.projects[this.selected_project]);
+        this._salesforceService.conn.query(`SELECT Status, Subject FROM Case WHERE Project__r.Id = '${this.projects[this.selected_project].id}'`,
+            function(err, res) {
+                self.projects[self.selected_project].cases = new Array<any>();
+                if (err) {
+                    console.error("Error loading builder info: ", err);
+                    return;
+                }
+
+                for (var i = 0; i < res.records.length; ++i) {
+                    var record = res.records[i];
+                    self.projects[self.selected_project].cases.push({
+                        name: record.Subject,
+                        status: record.Status,
+                    });
+                }
+
+                console.log(res);
+
+                self._ngZone.run(() => { });
+            }
+        );
     }
 }

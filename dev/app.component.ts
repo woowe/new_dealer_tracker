@@ -2,14 +2,14 @@ import {Component, Inject} from 'angular2/core';
 import {ROUTER_PROVIDERS, RouteConfig} from "angular2/router";
 import {SalesforceService} from './services/Salesforce.service';
 import {ProjectService} from './services/Project.service';
-import {DashboardComponent} from "./components/Dashboard/Dashboard.component";
-import {LoginComponent} from './components/Login/Login.component';
-import {ProjectsComponent} from "./components/Projects/Projects.components";
-import {MainComponent} from './components/MainApp/main.component';
+import {DashboardComponent} from "./components/Dashboard.component";
+import {LoginComponent} from './components/Login.component';
+import {ProjectsComponent} from "./components/Projects.components";
+import {MainComponent} from './components/main.component';
 
 @Component({
     selector: 'my-app',
-    templateUrl: 'dev/app.html',
+    templateUrl: 'views/app.html',
     directives: [LoginComponent, MainComponent]
 })
 
