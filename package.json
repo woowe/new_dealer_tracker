@@ -1,6 +1,6 @@
 {
-  "name": "Dealer-Tracker",
-  "version": "1.0.0",
+  "name": "Forest Fire",
+  "version": "0.1.0",
   "description": "A application to make my workflow easier",
   "main": "main.js",
   "scripts": {
