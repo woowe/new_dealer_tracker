@@ -1,10 +1,9 @@
-# Angular 2 Beta Boilerplate
+# Flamethrower
 
-## Description
-This repository acts as a very simple Angular 2 Beta Boilerplate with which you can get started developing Angular 2 immediately.
-It is derived from the official Angular 2 Documentation which can be found [here](https://angular.io/docs/ts/latest/quickstart.html).
-## Usage
-Follow the following steps and you're good to go! Important: Typescript and npm has to be installed on your machine!
+## Flamethrower is a front-end application to Dealer Fire's salesforce databased, geared twoards the production team.
+
+# All rights reserved
+
 1: Clone repo
 ```
 git clone https://github.com/mschwarzmueller/angular-2-beta-boilerplate.git
@@ -13,7 +12,7 @@ git clone https://github.com/mschwarzmueller/angular-2-beta-boilerplate.git
 ```
 npm install
 ```
-3: Start server (includes auto refreshing)
+3: Start electron
 ```
 npm start
 ```
