@@ -4,19 +4,15 @@
 
 # All rights reserved
 
-1: Clone repo
-```
-git clone https://github.com/mschwarzmueller/angular-2-beta-boilerplate.git
-```
-2: Install packages
+1: Install packages
 ```
 npm install
 ```
-3: Start electron
+2: Start electron
 ```
 npm start
 ```
-4: Start Gulp Watcher (compile TypeScript and (S)CSS)
+3: Start Gulp Watcher (compile TypeScript and (S)CSS)
 ```
 gulp
 ```
